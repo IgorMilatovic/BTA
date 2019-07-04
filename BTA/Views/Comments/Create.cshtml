@@ -1,0 +1,57 @@
+@model BTA.Models.Comment
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Comment</h4>
+        <hr />
+        @Html.ValidationMessageFor(model => model.CommentId, "", new { @class = "text-danger" })
+
+        <input id="parentId" type="hidden" name="parentId" value="" />
+        <input id="tableName" type="hidden" name="tableName" value="" />
+
+        @Html.ValidationMessageFor(model => model.ParentId, "", new { @class = "text-danger" })
+
+        @Html.ValidationMessageFor(model => model.Traveler, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+           
+            @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+            
+        </div>
+        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+
+        <input type="hidden" name="tableInsert" id="tableInsert" value="" />
+        <input type="hidden" name="idInsert" id="idInsert" value="" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" } )
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Text, 10, 500, new { htmlAttributes = new { @class = "form-control", @style = "width: 100%; max-width:100%; box-sizing: border-box" } })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

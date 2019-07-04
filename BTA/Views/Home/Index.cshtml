@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script>
+    if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+            console.log("Active service worker found, no need to register");
+        } else {
+            // Register the service worker
+            navigator.serviceWorker
+                .register("/pwabuilder-sw.js", {
+                    scope: "./"
+                })
+                .then(function (reg) {
+                    console.log("Service worker has been registered for scope: " + reg.scope);
+                });
+        }
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        
+        <ul class="">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Roles", "Index", "Role")</li>
+            <li>@Html.ActionLink("Modules", "Index", "Modules")</li>
+            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+            <li>@Html.ActionLink("Users list", "Index", "Travelers")</li>
+            <li>@Html.ActionLink("Cities", "Index", "Cities")</li>
+            <li>@Html.ActionLink("Pois", "Index", "POIs")</li>
+            <li>@Html.ActionLink("Lines", "Index", "Lines")</li>
+        </ul>
+            @Html.Partial("_LoginPartial")
+        
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@model BTA.Models.Module
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="page-delay invisible">
+    <h2 class="moduleName invisible">@Model.ModuleName</h2>
+
+    <input id="ModuleId" type="hidden" name="ModuleId" value="@Model.ModuleId" />
+
+    <div>
+        <div class="row my-5 mx-auto">
+            <div class="col-12 p-0">
+                <img class="city-img img-fluid" src="" alt="" />
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="col-12 d-none transportEl">
+                        <p class="text-center m-0 p-0 blueberry">From</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input id="ChoosenCountry" type="hidden" name="ChoosenCountry" value="" />
+                            @Html.DropDownList("Country", null, "Choose country", htmlAttributes: new { @class = "form-control mx-auto" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select id="CitySelect" class="form-control mx-auto">
+                                <option selected="selected">Choose city</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row transportEl d-none">
+                    <div class="col-12">
+                        <p class="text-center m-0 p-0 blueberry">To</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input id="ChoosenCountry2" type="hidden" name="ChoosenCountry2" value="" />
+                            @Html.DropDownList("Country", null, "Choose country", htmlAttributes: new { @class = "form-control mx-auto", @id = "Country2" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select id="CitySelect2" class="form-control mx-auto">
+                                <option selected="selected">Choose city</option>
+                            </select>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-6 p-0 text-right">
+                <button id="CategoriesButton" type="button" class="btn btn-light mr-4 fadeinButton">Categories</button>
+            </div>
+            <div class="col-md-6 p-0 text-left">
+                <button id="FeedbacksButton" type="button" class="btn btn-light ml-4 fadeinButton">Feedbacks</button>
+            </div>
+        </div>
+
+        <div id="ContentWrapper" class="mt-4">
+
+        </div>
+        <div id="ContentWrapper2" class="mt-4">
+
+        </div>
+    </div>
+
+    <input id="Long" type="hidden" name="long" value="" />
+    <input id="Lat" type="hidden" name="lat" value="" />
+    <div id="map_wrap">
+        <div id="map" class="map w-100" style="height: 300px;">
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/modulePages.js"></script>

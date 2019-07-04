@@ -1,0 +1,7 @@
+﻿@model IEnumerable<BTA.Models.Module>
+    
+@foreach (var it in Model)
+{
+    @Html.ActionLink(it.ModuleName, "Details", "Modules", new { id = it.ModuleId })
+}
+    

@@ -1,0 +1,134 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+    background: #efeff2;
+}
+
+a {
+    color: orange;
+}
+
+.fontSize32 {
+    font-size: 32px;
+}
+
+.fontSize27 {
+    font-size: 27px;
+}
+
+.fontSize23 {
+    font-size: 23px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+.orange {
+    color: orange;
+}
+
+.blueberry {
+    color: #340374;
+}
+
+.bcgWhite {
+    background: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 280px;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+/*CUSTOM Style*/
+
+.navbar-border {
+    background: #340374 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar-light .navbar-brand {
+    color: orange;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+brand-custom:hover {
+    color: white !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: orange !important;
+}
+
+.active-navLink {
+    color: orange !important;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+/*td {
+    background: white;
+    border: 1px solid black;
+    padding: 4px;
+}*/
+
+.fadeinButton {
+    opacity: 0;
+    transition: all .5s ease-in;
+}
+
+.add-comment-button {
+    color: darkorange;
+}
+
+.add-comment-button:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+.recent-poi-wrappers {
+    height: 190px;
+}
+
+/* Kata */
+
+.leave-comment {
+    cursor: pointer;
+    color: orange;
+}
+
+    .leave-comment:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+
+.card-body {
+    min-height: 150px;
+    width: 100% !important;
+}
+

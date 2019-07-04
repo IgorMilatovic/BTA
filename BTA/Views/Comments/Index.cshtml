@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BTA.Models.Comment>
+
+
+<table class="table" style="width: 100%;">
+    <tr>
+        <th>Feedback:</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td style="width: 100%;">
+            <input type="hidden" name="parent" value="@item.CommentId" />
+            <img src="@Html.DisplayFor(modelItem => item.Traveler1.ImgUrl)" alt="@Html.DisplayFor(modelItem => item.Traveler1.FullName)" style="width: 100px;" /> <span style="font-weight: bold;">@Html.DisplayFor(modelItem => item.Traveler1.FullName)</span>
+            <p>@Html.DisplayFor(modelItem => item.Rating) @Html.DisplayFor(modelItem => item.Title)</p>
+            <p>@Html.DisplayFor(modelItem => item.Text)</p>
+            <p>@Html.DisplayFor(modelItem => item.Date)</p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div class="add-comm"></div>
+                    <div class="comment-sec">
+
+                    </div>
+                </div>
+            </div>
+
+        </td>
+
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |*@
+            
+            <span class="leave-comment" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Comments
+            </span> |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
+        </td>
+        
+        
+    </tr>
+        
+    }
+
+</table>
+
+<script>
+    viewComments = document.querySelectorAll(".leave-comment");
+    for (let button of viewComments) {
+        button.onclick = (e) => {
+            let feedBackId = e.target.parentNode.parentNode.childNodes[1].childNodes[1].value;
+            $(".add-comm").load(`/Comments/CreateShortComment?parentId=${feedBackId}`);
+            console.log("feedback", e.target.parentNode.parentNode.childNodes[1].childNodes[13].childNodes[1].childNodes[3])
+            let loadComments = e.target.parentNode.parentNode.childNodes[1].childNodes[13].childNodes[1].childNodes[3];
+            $(loadComments).load(`/Comments/LoadComm?parentId=${feedBackId}`);
+        }
+    }
+</script>

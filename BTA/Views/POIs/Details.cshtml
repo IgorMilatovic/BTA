@@ -1,0 +1,62 @@
+﻿@model BTA.Models.POI
+
+@{
+    ViewBag.Title = "Details";
+<link href="~/Content/Site.css" rel="stylesheet" />
+}
+
+<h2>Details for @Html.DisplayFor(model => model.Category.CategoryName)</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <input id="PoiId" type="hidden" name="PoiId" value="@Model.PoiId" />
+        <input id="TableName" type="hidden" name="name" value="@Model.GetType().Name.Split('_')[0]" />
+
+
+        <dd>
+            <img class="d-inline-block" src="@Html.DisplayFor(model => model.PoiImg)" /> <p class="d-inline-block">@Html.DisplayFor(model => model.POIDescription)</p>
+            <p>Address: @Html.DisplayFor(model => model.Address)</p>
+            <p><a href="@Html.DisplayFor(model => model.Website)">Website</a></p>
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>*@
+
+
+    </dl>
+</div>
+
+@Html.HiddenFor(model => model.PoiId)
+@*@Html.ActionLink("Add feedback", "Create", "Comments", new { id = Model.PoiId })*@
+<div class="add-comment" style="display: none;"></div>
+<p>
+    <span class="add-comment-button ">Add feedback</span>
+</p>
+<div class="comment-section"></div>
+
+@*@Html.Partial("Index",)*@
+@*@RenderPage("~/Views/Comments/Index/" + Model.PoiId )*@
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PoiId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.PoiId })
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script src="~/Scripts/CommentLoader.js"></script>

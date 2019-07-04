@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BTA.Models.Comment>
+
+
+<table class="table">
+    <tr>
+        <th>Feedback:</th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Traveler1.IdentityId)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TableName)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            
+            <img src="@Html.DisplayFor(modelItem => item.Traveler1.ImgUrl)" alt="@Html.DisplayFor(modelItem => item.Traveler1.FullName)" style="width: 100px; height: 100px;"/>
+            <h4>@Html.DisplayFor(modelItem => item.Title)</h4><span>@Html.DisplayFor(modelItem => item.Rating) </span>
+            <p>@Html.DisplayFor(modelItem => item.Text)</p>
+            <p>@Html.DisplayFor(modelItem => item.Date)</p>
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableName)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BTA.Models.Comment>
+
+<table class="table">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Html.DisplayFor(modelItem => item.Traveler1.ImgUrl)" style="width: 50px;" />
+            <span style="font-weight: bold;">@Html.DisplayFor(modelItem => item.Traveler1.FullName)</span>
+            <div>@Html.DisplayFor(modelItem => item.Text)</div>
+            <div>@Html.DisplayFor(modelItem => item.Date)</div>
+        </td>
+
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BTA.Models.Line>
+
+
+
+
+
+@foreach (var it in @ViewBag.Providers)
+{
+    @Html.Raw("<div class='row my-4'>")
+
+    <div class="col-12 col-md-4 p-0">
+        <img class="img-fluid" src="@it.PoiImg" alt="" />
+    </div>
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-12 col-md-8 py-4 bg-light d-flex justify-content-center border border-dark">
+        <div class="d-inline-block align-self-center">
+            <div class="d-inline-block">
+                <p class="fontSize23">Source </p>
+                <p class="fontSize23">Destination </p>
+                <p class="fontSize23">Provider </p>
+            </div>
+            <div class="d-inline-block">
+                <p class="fontSize23">&nbsp; - &nbsp;</p>
+                <p class="fontSize23">&nbsp; - &nbsp;</p>
+                <p class="fontSize23">&nbsp; - &nbsp;</p>
+            </div>
+            <div class="d-inline-block">
+                <p class="font-weight-bold fontSize23"> @Html.DisplayFor(modelItem => item.City.CityName)</p>
+                <p class="font-weight-bold fontSize23"> @Html.DisplayFor(modelItem => item.City1.CityName)</p>
+                <p class="font-weight-bold fontSize23"><a href=" @Html.DisplayFor(modelItem => item.POI.Website)" target="_blank"> @Html.DisplayFor(modelItem => item.POI.Name)</a></p>
+            </div>
+        </div>
+    </div>
+@Html.Raw("</div>")
+}
+
+

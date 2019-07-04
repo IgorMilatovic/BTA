@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BTA.Models.Category>
+
+    <input id="LonHidden" type="hidden" name="Lon" value="@ViewBag.Lon" />
+    <input id="LatHidden" type="hidden" name="Lat" value="@ViewBag.Lat" />
+    
+    <div class="row mb-5 categoriesRow">
+
+        @{var counter = 0; }
+        @foreach (var item in Model)
+        {
+            counter++;
+            var hiddenId = $"hidden{counter}";
+            var recentCatPoisClass = $"recentCatPois{counter}";
+        <div class="col-12 mb-4">
+            <div class="d-flex justify-content-between">
+                <span class="category fontSize32 blueberry">
+                    @{ var catName = @item.CategoryName + 's'; }
+                    Recent @catName.ToLower():
+                </span>
+                <span class="fontSize27"><a href="~/POIs/PoiLoader/?catid=@item.CategoryId&cityid=@ViewBag.CityId">see all of</a></span>
+            </div>
+            <input id="@hiddenId" type="hidden" name="catId" value="@item.CategoryId" />
+            <input id="hiddenCityityId" type="hidden" name="cityId" value="@ViewBag.CityId" />
+            <div class="@recentCatPoisClass"></div>
+        </div>
+        }
+
+        <h4 class="">
+            @ViewBag.NoCategories
+        </h4>
+    </div> 
+    
+    <script src="~/Scripts/recentCategories.js"></script>
+

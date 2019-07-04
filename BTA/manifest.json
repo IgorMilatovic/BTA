@@ -1,0 +1,17 @@
+{
+    "name" : "Business Travel Advisor",
+    "short_name" : "BTA",
+    "description" : "Let your employees share their business trip experiences",
+    "scope" : "http://localhost:49859",
+    "display" : "standalone",
+    "background_color": "#fff",
+    "theme_color": "#340374",
+    "orientation" : "portrait",
+    "lang" : "English",
+    "start_url" : "http://localhost:49859/Modules/Details/10",
+    "icons" : [
+        {
+            "src": "/Assets/Images/suitcase512.jpg",
+            "sizes": "512x512"
+        }
+    ]}

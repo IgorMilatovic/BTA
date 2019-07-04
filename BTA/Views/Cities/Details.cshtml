@@ -1,0 +1,86 @@
+﻿@model BTA.Models.City
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <input id="CityId" type="hidden" name="CityId" value="@Model.CityId" />
+        <input id="TableName" type="hidden" name="name" value="@Model.GetType().Name.Split('_')[0]" />
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.CityName)
+            </dt>*@
+
+        <dd>
+            @Html.DisplayFor(model => model.CityName), @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Country)
+            </dt>*@
+
+        @*<dd>
+
+            </dd>*@
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Lon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Lon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Lat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Lat)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Population)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Population)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>*@
+
+    </dl>
+    <p>
+        <div class="add-comment-button">Add feedback</div>
+    </p>
+    @Html.HiddenFor(model => model.CityId)
+    <div class="add-comment" style="display: none;"></div>
+    <div class="comment-section"></div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CityId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@*<script src="~/Scripts/CommentLoader.js"></script>*@
+<script src="~/Scripts/CommentLoader.js"></script>

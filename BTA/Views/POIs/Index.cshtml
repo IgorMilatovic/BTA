@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BTA.Models.POI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PoiImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POIDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.PoiImg)" alt="@Html.DisplayFor(modelItem => item.Name)" style="width: 260px; height: 140px;" />
+            </td>
+            <td>
+
+                <h4>@item.Name</h4>
+
+                @Html.DisplayFor(modelItem => item.POIDescription) 
+                <address>@Html.DisplayFor(modelItem => item.Address) &nbsp; @Html.DisplayFor(modelItem => item.City.CityName)<br /></address>
+                <a href="@Html.DisplayFor(modelItem => item.Website)" target="_blank">Website</a>
+            </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PoiId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PoiId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PoiId })
+        </td>
+        </tr>
+        
+    }
+
+</table>
